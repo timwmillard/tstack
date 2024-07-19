@@ -1,0 +1,49 @@
+package admin
+
+templ html(title string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<title>Admin - { title }</title>
+			<meta name="description" content="Admin Dashboard"/>
+			<meta name="author" content="Tim Millard"/>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<link rel="shortcut icon" href="/static/img/favicon.png"/>
+			<link href="/static/css/admin.css" rel="stylesheet"/>
+			<script src="/static/js/htmx.min.js"></script>
+			<script src="/static/js/preline.js"></script>
+		</head>
+		{ children... }
+	</html>
+}
+
+templ ButtonPrimary(name string) {
+	<button class="btn btn-primary">
+		{ name }
+	</button>
+}
+
+type Crumb struct {
+	Name string
+	URL  string
+}
+
+templ Breadcrumbs(home string, crumbs []Crumb) {
+	<div class="text-sm breadcrumbs mb-4">
+		<ul>
+			<li>
+				<a href={ templ.SafeURL(home) } class="text-gray-600 dark:text-gray-200">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+						<path
+							d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+						></path>
+					</svg>
+				</a>
+			</li>
+			for _, crumb := range crumbs {
+				<li><a href={ templ.SafeURL(crumb.URL) }>{ crumb.Name }</a></li>
+			}
+		</ul>
+	</div>
+}

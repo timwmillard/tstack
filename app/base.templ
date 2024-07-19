@@ -1,0 +1,26 @@
+package app
+
+templ Base(title string, content templ.Component) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<title>App - { title }</title>
+			<meta name="description" content="Demo app"/>
+			<meta name="author" content="Tim Millard"/>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<link rel="shortcut icon" href="/static/img/favicon.png"/>
+			<link href="/static/css/app.css" rel="stylesheet"/>
+			<script src="/static/js/htmx.min.js"></script>
+			<script src="/static/js/flowbite.min.js"></script>
+		</head>
+		<body>
+			<header class="bg-gray-600 px-4 py-4 text-white border-b-4 border-b-gray-500">
+				<h1>Demo App</h1>
+			</header>
+			<main id="main" class="container mx-auto mt-4 p-2">
+				@content
+			</main>
+		</body>
+	</html>
+}

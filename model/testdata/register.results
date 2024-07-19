@@ -1,0 +1,18 @@
+-- sqltest
+select username, email
+from auth.user;
++--------------+--------------+
+| username     | email        |
++--------------+--------------+
+| tim@test.com | tim@test.com |
++--------------+--------------+
+
+-- sqltest
+select first_name, last_name
+from app.admin;
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| Tim        |           |
++------------+-----------+
+

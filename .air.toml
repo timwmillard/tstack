@@ -1,0 +1,52 @@
+root = "."
+testdata_dir = "testdata"
+tmp_dir = "tmp"
+
+[build]
+  args_bin = ["-migrate"]
+  bin = "./server"
+  cmd = "go generate ./... && go build -o ./server ./cmd/server"
+  delay = 50 
+  exclude_dir = [
+     "assets", "tmp", "vendor", "testdata",
+     "appsmith",
+     "app/node_modules", "admin/node_modules",
+     "deploy"
+  ]
+  exclude_file = [
+      "app/styles.css", "app/tailwind.config.js", "app/package.json", "app/package-lock.json",
+      "admin/styles.css", "admin/tailwind.config.js", "app/package.json", "app/package-lock.json"
+  ]
+  exclude_regex = ["_test.go", ".*_templ.go"]
+  exclude_unchanged = false
+  follow_symlink = false
+  full_bin = ""
+  include_dir = []
+  include_ext = ["go", "tpl", "tmpl", "templ", "html", "css", "js", "sql"]
+  include_file = []
+  kill_delay = "0s"
+  log = "build-errors.log"
+  poll = false
+  poll_interval = 0
+  rerun = false
+  rerun_delay = 500
+  send_interrupt = true
+  stop_on_error = true
+
+[color]
+  app = ""
+  build = "yellow"
+  main = "magenta"
+  runner = "green"
+  watcher = "cyan"
+
+[log]
+  main_only = false
+  time = false
+
+[misc]
+  clean_on_exit = false
+
+[screen]
+  clear_on_rebuild = true
+  keep_scroll = true

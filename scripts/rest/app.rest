@@ -1,0 +1,33 @@
+http://localhost:8889
+
+# curls options
+
+--silent
+
+# verboase
+
+-v
+
+# include response header
+--include
+-b cookie.txt
+-c cookie.txt
+
+
+--
+--
+GET /
+
+--
+GET /events/
+
+--
+GET /admin/register
+
+# Shopping Cart
+--
+POST /cart
+
+--
+DELETE /cart
+
